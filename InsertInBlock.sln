@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsertInBlock", "InsertInBlock\InsertInBlock.csproj", "{B26F87CC-C2B5-45B2-AEF0-5960B1ADB057}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsertInBlock", "src\InsertInBlock\InsertInBlock.csproj", "{B26F87CC-C2B5-45B2-AEF0-5960B1ADB057}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsertInBlockTest", "InsertInBlockTest\InsertInBlockTest.csproj", "{E832F8B9-9360-4A3B-A093-818FD3364446}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsertInBlockTest", "src\InsertInBlockTest\InsertInBlockTest.csproj", "{E832F8B9-9360-4A3B-A093-818FD3364446}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
