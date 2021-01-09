@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InsertInBlock</name>
+    </assembly>
+    <members>
+        <member name="T:System.Data.SqlClient.SqlConnectionExtensions">
+            <summary>
+            This class is an extension of System.Data.SqlClient to facilitate block data insertion.
+            </summary>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InsertInBlock(System.Data.SqlClient.SqlConnection,System.Data.DataTable)">
+            <summary>
+                This method inserts block data.
+            </summary>
+            <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
+            <param name="data">A System.Data.DataTable whose rows will be copied to the target table. 
+            The TableName property must be filled in with the name of the destination table.</param>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InsertInBlock(System.Data.SqlClient.SqlConnection,System.Data.DataTable,System.String)">
+            <summary>
+                This method inserts block data.
+            </summary>
+            <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
+            <param name="data">A System.Data.DataTable whose rows will be copied to the destination table.</param>
+            <param name="tableName">The name of the table that will be inserted into the data.</param>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InsertInBlock(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.DataTable)">
+            <summary>
+                This method inserts block data.
+            </summary>
+            <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
+            <param name="transaction">An existing System.Data.SqlClient.SqlTransaction instance under which the bulk copy will occur.</param>
+            <param name="data">A System.Data.DataTable whose rows will be copied to the target table. 
+            The TableName property must be filled in with the name of the destination table.</param>        
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InsertInBlock(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.DataTable,System.String,System.Data.SqlClient.SqlBulkCopyOptions,System.Int32,System.Int32,System.Int32)">
+            <summary>
+                This method inserts block data.
+            </summary>
+            <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
+            <param name="transaction">An existing System.Data.SqlClient.SqlTransaction instance under which the bulk copy will occur.</param>
+            <param name="data">A System.Data.DataTable whose rows will be copied to the destination table.</param>
+            <param name="tableName">The name of the table that will be inserted into the data.</param>
+            <param name="bulkCopyOptions">Bitwise flag that specifies one or more options to use with an instance of System.Data.SqlClient.SqlBulkCopy.</param>
+            <param name="batchSize">Number of rows in each batch. At the end of each batch, the rows in the batch are sent to the server.
+            The integer value of the System.Data.SqlClient.SqlBulkCopy.NotifyAfter property, or zero if the property has not been set.</param>
+            <param name="bulkCopyTimeout">Number of seconds for the operation to complete before it times out.
+            The default is 30 seconds. A value of 0 indicates no limit; the bulk copy will</param>
+            <param name="notifyAfter">Defines the number of rows to be processed before generating a notification event.
+            System.Data.SqlClient.SqlBulkCopy.NotifyAfter property, or zero if the property has not been set.</param>       
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.GetTableStructure(System.Data.SqlClient.SqlConnection,System.String)">
+            <summary>
+                This method gets the structure of the database table.
+            </summary>
+            <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
+            <param name="tableName">The name of the table that will be inserted into the data.</param>
+            <returns>the table structure in System.Data.DataTable</returns>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.GetTableStructure(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.String)">
+            <summary>
+                This method gets the structure of the database table.
+            </summary>
+            <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
+            <param name="transaction">An existing System.Data.SqlClient.SqlTransaction instance under which the bulk copy will occur.</param>
+            <param name="tableName">The name of the table that will be inserted into the data.</param>
+            <returns>the table structure in System.Data.DataTable</returns>
+        </member>
+    </members>
+</doc>
