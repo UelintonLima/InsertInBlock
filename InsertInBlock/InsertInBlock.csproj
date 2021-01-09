@@ -13,6 +13,7 @@
     <ApplicationIcon>InsertInBlock.ico</ApplicationIcon>
     <PackageIcon>InsertInBlock.png</PackageIcon>
     <NeutralLanguage>en</NeutralLanguage>
+    <RepositoryUrl>https://github.com/UelintonLima/InsertInBlock</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
