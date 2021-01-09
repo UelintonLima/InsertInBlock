@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>System.Data.SqlClient</RootNamespace>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Extension of System.Data.SqlClient to facilitate block data insertion.</Description>
     <Copyright>Uelinton; Felipe</Copyright>
@@ -15,11 +15,11 @@
     <NeutralLanguage>en</NeutralLanguage>
     <RepositoryUrl>https://github.com/UelintonLima/InsertInBlock</RepositoryUrl>
     <PackageProjectUrl>https://github.com/UelintonLima/InsertInBlock</PackageProjectUrl>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>D:\Desenvolvimento\InsertInBlock\InsertInBlock\InsertInBlock.xml</DocumentationFile>
+    <DocumentationFile>D:\Desenvolvimento\InsertInBlock\src\InsertInBlock\InsertInBlock.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\LICENSE">
+    <None Include="..\..\LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
