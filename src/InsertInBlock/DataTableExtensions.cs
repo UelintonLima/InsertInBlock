@@ -1,4 +1,7 @@
-﻿namespace System.Data.SqlClient
+﻿using System.Collections.Generic;
+using System.Reflection;
+
+namespace System.Data
 {
     /// <summary>
     /// This class is an extension of System.Data.DataTable to facilitate inclusion of records
@@ -21,5 +24,33 @@
             data.Rows.Add(newRow);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DataTable ConvertToDataTable<T>(this List<T> data) where T : class
+        {
+            var table = new DataTable(data.GetTableName());
+
+            PropertyInfo[] properties = typeof(T).GetProperties();
+
+            foreach (var property in properties)
+                table.Columns.Add(property.GetFieldName(), property.PropertyType);
+
+            DataRow dr = null;
+            foreach (var row in data)
+            {
+                dr = table.NewRow();
+
+                foreach (var property in properties)
+                    dr[property.GetFieldName()] = property.GetValue(row);
+
+                table.Rows.Add(dr);
+            }
+
+            return table;
+        }
     }
 }

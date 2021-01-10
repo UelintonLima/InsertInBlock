@@ -4,17 +4,37 @@
         <name>InsertInBlock</name>
     </assembly>
     <members>
-        <member name="T:System.Data.SqlClient.DataTableExtensions">
+        <member name="T:System.Data.SqlClient.Attributes.SqlColumnAttribute">
             <summary>
-            This class is an extension of System.Data.DataTable to facilitate inclusion of records
+            
             </summary>
         </member>
-        <member name="M:System.Data.SqlClient.DataTableExtensions.AddRow(System.Data.DataTable,System.Data.DataRow)">
+        <member name="P:System.Data.SqlClient.Attributes.SqlColumnAttribute.FieldName">
             <summary>
-                This method adds a System.Data.DataRow to the target System.Data.DataTable with existing columns
+            
             </summary>
-            <param name="data">A System.Data.DataTable whose line will be added.</param>
-            <param name="row">A System.Data.DataRow line that will be added to the target System.Data.DataTable.</param>
+        </member>
+        <member name="M:System.Data.SqlClient.Attributes.SqlColumnAttribute.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fieldName"></param>
+        </member>
+        <member name="T:System.Data.SqlClient.Attributes.SqlTableAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:System.Data.SqlClient.Attributes.SqlTableAttribute.TableName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:System.Data.SqlClient.Attributes.SqlTableAttribute.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tableName"></param>
         </member>
         <member name="T:System.Data.SqlClient.SqlConnectionExtensions">
             <summary>
@@ -35,6 +55,14 @@
             </summary>
             <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
             <param name="data">A System.Data.DataTable whose rows will be copied to the destination table.</param>
+            <param name="tableName">The name of the table that will be inserted into the data.</param>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InsertInBlock``1(System.Data.SqlClient.SqlConnection,System.Collections.Generic.List{``0},System.String)">
+            <summary>
+                This method inserts block data.
+            </summary>
+            <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
+            <param name="data">A data whose rows will be copied to the destination table.</param>
             <param name="tableName">The name of the table that will be inserted into the data.</param>
         </member>
         <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InsertInBlock(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.DataTable)">
@@ -78,6 +106,26 @@
             <param name="transaction">An existing System.Data.SqlClient.SqlTransaction instance under which the bulk copy will occur.</param>
             <param name="tableName">The name of the table that will be inserted into the data.</param>
             <returns>the table structure in System.Data.DataTable</returns>
+        </member>
+        <member name="T:System.Data.DataTableExtensions">
+            <summary>
+            This class is an extension of System.Data.DataTable to facilitate inclusion of records
+            </summary>
+        </member>
+        <member name="M:System.Data.DataTableExtensions.AddRow(System.Data.DataTable,System.Data.DataRow)">
+            <summary>
+                This method adds a System.Data.DataRow to the target System.Data.DataTable with existing columns
+            </summary>
+            <param name="data">A System.Data.DataTable whose line will be added.</param>
+            <param name="row">A System.Data.DataRow line that will be added to the target System.Data.DataTable.</param>
+        </member>
+        <member name="M:System.Data.DataTableExtensions.ConvertToDataTable``1(System.Collections.Generic.List{``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>
