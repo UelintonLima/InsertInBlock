@@ -39,7 +39,7 @@
 
   <ItemGroup>
     <Reference Include="IBM.Data.DB2">
-      <HintPath>..\..\..\..\Lyncas\karsten\Geral\Karsten.DataAccess\bin\Producao\IBM.Data.DB2.dll</HintPath>
+      <HintPath>..\..\libs\IBM.Data.DB2.dll</HintPath>
     </Reference>
   </ItemGroup>
 
