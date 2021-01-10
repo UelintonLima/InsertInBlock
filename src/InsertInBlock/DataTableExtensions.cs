@@ -39,11 +39,12 @@ namespace System.Data
             var colluns = new Dictionary<string, string>();
             foreach (var property in properties)
             {
-                colluns.Add(property.Name, property.GetFieldName());
-                table.Columns.Add(property.GetFieldName(), property.PropertyType);
+                var fieldName = property.GetFieldName();
+                colluns.Add(property.Name, fieldName);
+                table.Columns.Add(fieldName, property.PropertyType);
             }
 
-            DataRow dr = null;
+            DataRow dr;
             foreach (var row in data)
             {
                 dr = table.NewRow();
