@@ -36,8 +36,12 @@ namespace System.Data
 
             PropertyInfo[] properties = typeof(T).GetProperties();
 
+            var colluns = new Dictionary<string, string>();
             foreach (var property in properties)
+            {
+                colluns.Add(property.Name, property.GetFieldName());
                 table.Columns.Add(property.GetFieldName(), property.PropertyType);
+            }
 
             DataRow dr = null;
             foreach (var row in data)
@@ -45,7 +49,7 @@ namespace System.Data
                 dr = table.NewRow();
 
                 foreach (var property in properties)
-                    dr[property.GetFieldName()] = property.GetValue(row);
+                    dr[colluns[property.Name]] = property.GetValue(row);
 
                 table.Rows.Add(dr);
             }
