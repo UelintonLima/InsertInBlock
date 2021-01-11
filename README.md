@@ -5,24 +5,11 @@ This project is an extension of System.Data.SqlClient to facilitate block data i
 
 how to use mapping in the class:
 ```
-[SqlTable(tableName: "person")]
-public class Person
+[SqlTable(tableName: "table_test")]
+public class TableTest
 {
-	public Person(string firstName, string lastName, int age)
-	{
-		this.FirstName = firstName;
-		this.LastName = lastName;
-		this.Age = age;
-	}
-
-	[SqlColumn(fieldName: "first_name")]
-	public string FirstName { get; set; }
-
-	[SqlColumn(fieldName: "last_name")]
-	public string LastName { get; set; }
-
-	[SqlColumn(fieldName: "age")]
-	public int Age { get; set; }
+	[SqlColumn(fieldName: "name")]
+	public string Name { get; set; }
 }
 ```
 
@@ -55,6 +42,10 @@ using (SqlConnection connection = new SqlConnection(connectionString))
 
 	dr = dados.NewRow();
 	dr["name"] = "Maria";
+	dados.Rows.Add(dr);
+	
+	dr = dados.NewRow();
+	dr["name"] = "Pedro";
 	dados.Rows.Add(dr);
 	
 	connection.InsertInBlock(dados);
