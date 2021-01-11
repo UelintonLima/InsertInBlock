@@ -25,10 +25,10 @@ namespace System.Data
         }
 
         /// <summary>
-        /// 
+        ///     This method Convert System.Collections.Generic.List to System.Data.DataTable.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="data"></param>
+        /// <typeparam name="T">class to be mapped to a target table</typeparam>
+        /// <param name="data">destination table that will receive the list data</param>
         /// <returns></returns>
         public static DataTable ConvertToDataTable<T>(this List<T> data) where T : class
         {
