@@ -14,31 +14,29 @@ namespace InsertInBlockTest
         [TestMethod]
         public void TestInsertInBlockClass()
         {
+            List<TableTest> dados = new List<TableTest>();
+            dados.Add(new TableTest() { Name = "João" });
+            dados.Add(new TableTest() { Name = "Maria" });
+            dados.Add(new TableTest() { Name = "Pedro" });
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
-                List<TableTest> dados = new List<TableTest>();
-                dados.Add(new TableTest() { Name = "teste name" });
-                dados.Add(new TableTest() { Name = "teste name2" });
-                dados.Add(new TableTest() { Name = "teste name3" });
-
                 connection.InsertInBlock(dados);
-
-                dados.Clear();
-                using (SqlCommand cmd = new SqlCommand(string.Format("SELECT count(*)  FROM table_test where name = 'teste name'"), connection))
-                {
-                    Assert.IsTrue((int)cmd.ExecuteScalar() > 0);
-                }
-                using (SqlCommand cmd = new SqlCommand(string.Format("SELECT count(*)  FROM table_test where name = 'teste name2'"), connection))
-                {
-                    Assert.IsTrue((int)cmd.ExecuteScalar() > 0);
-                }
-                using (SqlCommand cmd = new SqlCommand(string.Format("SELECT count(*)  FROM table_test where name = 'teste name3'"), connection))
-                {
-                    Assert.IsTrue((int)cmd.ExecuteScalar() > 0);
-                }
                 connection.Close();
+
+                using (SqlCommand cmd = new SqlCommand("SELECT count(*)  FROM table_test where name = 'João'", connection))
+                {
+                    Assert.IsTrue((int)cmd.ExecuteScalar() > 0);
+                }
+                using (SqlCommand cmd = new SqlCommand("SELECT count(*)  FROM table_test where name = 'Maria'", connection))
+                {
+                    Assert.IsTrue((int)cmd.ExecuteScalar() > 0);
+                }
+                using (SqlCommand cmd = new SqlCommand("SELECT count(*)  FROM table_test where name = 'Pedro'", connection))
+                {
+                    Assert.IsTrue((int)cmd.ExecuteScalar() > 0);
+                }
             }
         }
 
