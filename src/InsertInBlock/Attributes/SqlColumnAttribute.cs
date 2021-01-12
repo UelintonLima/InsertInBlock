@@ -1,23 +1,20 @@
 ﻿namespace System.Data.SqlClient.Attributes
 {
     /// <summary>
-    /// This class is an extension of System.Data.DataTable to facilitate map the database table
+    /// This class is a custom attribute to map as columns in a database table
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public class SqlColumnAttribute : Attribute
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public string FieldName { get; private set; }
+        public SqlColumnAttribute(string columnName)
+        {
+            this.ColumnName = columnName;
+        }
 
         /// <summary>
-        /// 
+        ///     Column name in the database
         /// </summary>
-        /// <param name="fieldName"></param>
-        public SqlColumnAttribute(string fieldName)
-        {
-            this.FieldName = fieldName;
-        }
+        public string ColumnName { get; private set; }
+
     }
 }

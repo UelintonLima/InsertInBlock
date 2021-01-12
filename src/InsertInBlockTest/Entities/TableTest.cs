@@ -5,7 +5,7 @@ namespace InsertInBlockTest.Entities
     [SqlTable(tableName: "table_test")]
     public class TableTest
     {
-        [SqlColumn(fieldName: "name")]
+        [SqlColumn(columnName: "name")]
         public string Name { get; set; }
     }
 }

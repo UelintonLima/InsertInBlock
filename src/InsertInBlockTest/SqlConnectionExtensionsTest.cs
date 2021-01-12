@@ -23,7 +23,6 @@ namespace InsertInBlockTest
             {
                 connection.Open();
                 connection.InsertInBlock(dados);
-                connection.Close();
 
                 using (SqlCommand cmd = new SqlCommand("SELECT count(*)  FROM table_test where name = 'João'", connection))
                 {
@@ -37,6 +36,8 @@ namespace InsertInBlockTest
                 {
                     Assert.IsTrue((int)cmd.ExecuteScalar() > 0);
                 }
+
+                connection.Close();
             }
         }
 

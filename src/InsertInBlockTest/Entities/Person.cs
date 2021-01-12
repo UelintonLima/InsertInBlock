@@ -12,13 +12,13 @@ namespace InsertInBlockTest.Entities
             this.Age = age;
         }
 
-        [SqlColumn(fieldName: "first_name")]
+        [SqlColumn(columnName: "first_name")]
         public string FirstName { get; set; }
 
-        [SqlColumn(fieldName: "last_name")]
+        [SqlColumn(columnName: "last_name")]
         public string LastName { get; set; }
 
-        [SqlColumn(fieldName: "age")]
+        [SqlColumn(columnName: "age")]
         public int Age { get; set; }
     }
 }

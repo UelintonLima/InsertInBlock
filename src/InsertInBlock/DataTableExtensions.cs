@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-
-namespace System.Data
+﻿namespace System.Data
 {
     /// <summary>
     /// This class is an extension of System.Data.DataTable to facilitate inclusion of records
@@ -22,40 +19,6 @@ namespace System.Data
                     newRow[column.ColumnName] = row[column.ColumnName];
             }
             data.Rows.Add(newRow);
-        }
-
-        /// <summary>
-        ///     This method Convert System.Collections.Generic.List to System.Data.DataTable.
-        /// </summary>
-        /// <typeparam name="T">class to be mapped to a target table</typeparam>
-        /// <param name="data">destination table that will receive the list data</param>
-        /// <returns></returns>
-        public static DataTable ConvertToDataTable<T>(this List<T> data) where T : class
-        {
-            var table = new DataTable(data.GetTableName());
-
-            PropertyInfo[] properties = typeof(T).GetProperties();
-
-            var colluns = new Dictionary<string, string>();
-            foreach (var property in properties)
-            {
-                var fieldName = property.GetFieldName();
-                colluns.Add(property.Name, fieldName);
-                table.Columns.Add(fieldName, property.PropertyType);
-            }
-
-            DataRow dr;
-            foreach (var row in data)
-            {
-                dr = table.NewRow();
-
-                foreach (var property in properties)
-                    dr[colluns[property.Name]] = property.GetValue(row);
-
-                table.Rows.Add(dr);
-            }
-
-            return table;
         }
     }
 }
