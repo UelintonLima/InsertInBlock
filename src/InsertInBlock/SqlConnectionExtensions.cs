@@ -1,4 +1,7 @@
-﻿namespace System.Data.SqlClient
+﻿using System.Collections.Generic;
+using System.Data.SqlClient.Attributes;
+
+namespace System.Data.SqlClient
 {
     /// <summary>
     /// This class is an extension of System.Data.SqlClient to facilitate block data insertion.
@@ -20,6 +23,30 @@
         /// <param name="data">A System.Data.DataTable whose rows will be copied to the destination table.</param>
         /// <param name="tableName">The name of the table that will be inserted into the data.</param>
         public static void InsertInBlock(this SqlConnection connection, DataTable data, string tableName) => connection.InsertInBlock(transaction: null, data: data, tableName: tableName);
+
+
+        /// <summary>
+        ///     This method inserts block data.
+        /// </summary>
+        /// <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
+        /// <param name="data"></param>
+        /// <param name="tableName">The name of the table that will be inserted into the data.</param>
+        public static void InsertInBlock<T>(this SqlConnection connection, List<T> data) where T : class
+        {
+            connection.InsertInBlock(transaction: null, data: data.ConvertToDataTable(), tableName: data.GetTableName());
+        }
+
+        /// <summary>
+        ///     This method inserts block data.
+        /// </summary>
+        /// <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
+        /// <param name="transaction">An existing System.Data.SqlClient.SqlTransaction instance under which the bulk copy will occur.</param>
+        /// <param name="data"></param>
+        /// <param name="tableName">The name of the table that will be inserted into the data.</param>
+        public static void InsertInBlock<T>(this SqlConnection connection, SqlTransaction transaction, List<T> data, string tableName) where T : class
+        {
+            connection.InsertInBlock(transaction: transaction, data: data.ConvertToDataTable(), tableName: tableName);
+        }
 
         /// <summary>
         ///     This method inserts block data.

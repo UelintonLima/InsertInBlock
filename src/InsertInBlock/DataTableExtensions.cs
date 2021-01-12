@@ -1,4 +1,4 @@
-﻿namespace System.Data.SqlClient
+﻿namespace System.Data
 {
     /// <summary>
     /// This class is an extension of System.Data.DataTable to facilitate inclusion of records
@@ -20,6 +20,5 @@
             }
             data.Rows.Add(newRow);
         }
-
     }
 }
