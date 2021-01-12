@@ -4,37 +4,58 @@
         <name>InsertInBlock</name>
     </assembly>
     <members>
+        <member name="T:System.Data.SqlClient.Attributes.AttributeExtensions">
+            <summary>
+            This class is an extension of System.Data.SqlClient to facilitate custom attributes.
+            </summary>
+        </member>
+        <member name="M:System.Data.SqlClient.Attributes.AttributeExtensions.ConvertToDataTable``1(System.Collections.Generic.List{``0})">
+            <summary>
+                This method Convert System.Collections.Generic.List to System.Data.DataTable.
+            </summary>
+            <typeparam name="T">class to be mapped to a target System.Data.DataRow</typeparam>
+            <param name="data">Destination System.Data.DataTable that will receive the System.Collections.Generic.List data</param>
+            <returns>Returns a System.Data.DataTable filled with the System.Collections.Generic.List data</returns>
+        </member>
+        <member name="M:System.Data.SqlClient.Attributes.AttributeExtensions.GetTableName``1(System.Collections.Generic.List{``0})">
+            <summary>
+                This method gets the TableName property of the System.Data.SqlClient.Attributes.SqlTableAttribute class
+                if the mapping is not found, the method returns the value of the class name
+            </summary>        
+            <typeparam name="T">Class to be mapped</typeparam>
+            <param name="data">System.Collections.Generic.List class to be mapped</param>
+            <returns>returns the TableName property of the System.Data.SqlClient.Attributes.SqlTableAttribute class
+            if the mapping is not found, the method returns the value of the class name</returns>
+        </member>
+        <member name="M:System.Data.SqlClient.Attributes.AttributeExtensions.GetFieldName(System.Reflection.PropertyInfo)">
+            <summary>
+                This method gets the FieldName property of the System.Data.SqlClient.Attributes.SqlColumnAttribute class
+                if the mapping is not found, the method returns the value of the property name
+            </summary>        
+            <typeparam name="T">Class to be mapped</typeparam>
+            <param name="data">System.Collections.Generic.List class to be mapped</param>
+            <returns>returns the FieldName property of the System.Data.SqlClient.Attributes.SqlColumnAttribute class
+            if the mapping is not found, the method returns the value of the property name</returns>
+        </member>
         <member name="T:System.Data.SqlClient.Attributes.SqlColumnAttribute">
             <summary>
-            
+            This class is a custom attribute to map as columns in a database table
             </summary>
         </member>
-        <member name="P:System.Data.SqlClient.Attributes.SqlColumnAttribute.FieldName">
+        <member name="P:System.Data.SqlClient.Attributes.SqlColumnAttribute.ColumnName">
             <summary>
-            
+                Column name in the database
             </summary>
-        </member>
-        <member name="M:System.Data.SqlClient.Attributes.SqlColumnAttribute.#ctor(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="fieldName"></param>
         </member>
         <member name="T:System.Data.SqlClient.Attributes.SqlTableAttribute">
             <summary>
-            
+            This class is a custom attribute for mapping a database table
             </summary>
         </member>
         <member name="P:System.Data.SqlClient.Attributes.SqlTableAttribute.TableName">
             <summary>
-            
+                Table name in the database
             </summary>
-        </member>
-        <member name="M:System.Data.SqlClient.Attributes.SqlTableAttribute.#ctor(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="tableName"></param>
         </member>
         <member name="T:System.Data.SqlClient.SqlConnectionExtensions">
             <summary>
@@ -57,12 +78,21 @@
             <param name="data">A System.Data.DataTable whose rows will be copied to the destination table.</param>
             <param name="tableName">The name of the table that will be inserted into the data.</param>
         </member>
-        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InsertInBlock``1(System.Data.SqlClient.SqlConnection,System.Collections.Generic.List{``0},System.String)">
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InsertInBlock``1(System.Data.SqlClient.SqlConnection,System.Collections.Generic.List{``0})">
             <summary>
                 This method inserts block data.
             </summary>
             <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
-            <param name="data">A data whose rows will be copied to the destination table.</param>
+            <param name="data"></param>
+            <param name="tableName">The name of the table that will be inserted into the data.</param>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InsertInBlock``1(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Collections.Generic.List{``0},System.String)">
+            <summary>
+                This method inserts block data.
+            </summary>
+            <param name="connection">The already open System.Data.SqlClient.SqlConnection instance that will be used.</param>
+            <param name="transaction">An existing System.Data.SqlClient.SqlTransaction instance under which the bulk copy will occur.</param>
+            <param name="data"></param>
             <param name="tableName">The name of the table that will be inserted into the data.</param>
         </member>
         <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InsertInBlock(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Data.DataTable)">
@@ -118,14 +148,6 @@
             </summary>
             <param name="data">A System.Data.DataTable whose line will be added.</param>
             <param name="row">A System.Data.DataRow line that will be added to the target System.Data.DataTable.</param>
-        </member>
-        <member name="M:System.Data.DataTableExtensions.ConvertToDataTable``1(System.Collections.Generic.List{``0})">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="data"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>
